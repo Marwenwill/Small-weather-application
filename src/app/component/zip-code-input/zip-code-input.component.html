@@ -1,0 +1,24 @@
+<div class="well">
+  <form #zipCodeForm="ngForm" (ngSubmit)="addLocation(zipcode.value)">
+    <h2>Enter a zipcode:</h2>
+    <input
+      class="form-control"
+      placeholder="Zipcode"
+      type="text"
+      id="addLocation"
+      name="zipcode"
+      #zipcode="ngModel"
+      ngModel
+      required
+    />
+    <p *ngIf="(zipcode.invalid && zipcode.touched)" class="red-alert">
+      Please enter zipcode !
+    </p>
+    <p class="red-alert">{{zipCodeError}}</p>
+    <br />
+    <button class="btn btn-primary" id="addLocationBtn">Add location</button>
+  </form>
+</div>
+<app-zip-code-details [locationsWeather]="locationsWeather"
+                      (toDeleteZipCodeIndex)="deleteZipCode($event)"
+                      ></app-zip-code-details>

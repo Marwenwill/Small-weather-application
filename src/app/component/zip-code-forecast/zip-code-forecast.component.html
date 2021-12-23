@@ -1,0 +1,17 @@
+<div *ngIf="list5DaysForecast.length" class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">5-day forecast for {{list5DaysForecast[0].countryName}} ({{list5DaysForecast[0].zipCode}})</h3>
+    </div>
+    <ul class="list-group">
+      <!---->
+      <li *ngFor="let dayForecast of list5DaysForecast" class="list-group-item">
+        {{dayForecast.day}}: {{dayForecast.weatherType}} - Min: {{dayForecast.tempMin}} - Max: {{dayForecast.tempMax}}
+        <img class="icon" src="https://www.angulartraining.com/images/weather/{{dayForecast.weatherType}}.png"/>
+      </li>
+    </ul>
+  </div>
+  <button class="btn btn-success" tabindex="0" id="mainPageBtn" routerLink="../..">
+    &lt; Back to main page
+  </button>
+</div>

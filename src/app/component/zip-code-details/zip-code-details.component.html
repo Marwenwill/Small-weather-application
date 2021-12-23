@@ -1,0 +1,21 @@
+<div *ngIf="locationsWeather">
+  <div *ngFor="let location of locationsWeather; let i = index"
+    class="well flex">
+    <div>
+      <h3>{{location.countryName}} ({{location.zipCode}})</h3>
+      <h4>Current conditions: {{location.weatherType}}</h4>
+      <h4>Temperatures today:</h4>
+      <p>
+        Current {{location.temp}} - Max {{location.tempMax}} - Min
+        {{location.tempMin}}
+      </p>
+      <p>
+        <a routerLink="forecast/{{location.zipCode}}" href="/forecast/95742">Show 5-day forecast for {{location.countryName}}</a>
+      </p>
+    </div>
+    <div>
+      <span class="close" (click)="deleteZipCode(i)">×</span>
+      <img src="https://www.angulartraining.com/images/weather/{{location.weatherType}}.png"/>
+    </div>
+  </div>
+</div>
